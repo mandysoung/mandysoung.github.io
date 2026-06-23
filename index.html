@@ -380,6 +380,32 @@
     .additional-work-grid{grid-template-columns:1fr;}
     .deck-card{flex-direction:column;align-items:flex-start;gap:14px;}
   }
+    /* ACCORDION */
+  .accordion-toggle {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .accordion-toggle::after {
+    content: '↓';
+    font-size: 1.2rem;
+    color: var(--muted);
+    transition: transform .3s ease;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .accordion-toggle.open::after {
+    transform: rotate(180deg);
+  }
+  .accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .4s ease;
+  }
+  .accordion-content.open {
+    max-height: 9999px;
+  }
 </style>
 </head>
 <body>
@@ -662,31 +688,32 @@
   </div>
 
   <div class="gallery-block">
-    <div class="gallery-header">
-      <div>
-        <h3>Strive Marketing Consulting</h3>
-        <p>Social media content for Strive Marketing Consulting (formerly Smith Marketing Consulting), a student-run marketing consultancy at Queen's University.</p>
-        <div class="social-links">
-          <a href="https://www.instagram.com/strivemarketingconsulting/" target="_blank" rel="noopener" aria-label="Strive Marketing Consulting Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-          </a>
-          <a href="https://ca.linkedin.com/company/strivemarketingconsulting" target="_blank" rel="noopener" aria-label="Strive Marketing Consulting LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 4.98 2.4 4.98 3.5zM1 8h4v13H1V8zm7 0h4v2h.06c.5-1 1.8-2.1 3.7-2.1 4 0 4.7 2.6 4.7 6V21h-4v-5.4c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9V21H8V8z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/SmithMarketingConsulting/" target="_blank" rel="noopener" aria-label="Strive Marketing Consulting Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H7.9V12h2.6V9.8c0-2.6 1.5-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
-          </a>
-          <a href="https://strivemarketingconsulting.ca/" target="_blank" rel="noopener" aria-label="Strive Marketing Consulting website">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
-          </a>
-        </div>
-        <div class="platform-tags">
-          <span class="tag-instagram">Instagram</span>
-          <span class="tag-linkedin">LinkedIn</span>
-          <span class="tag-facebook">Facebook</span>
-        </div>
+  <div class="gallery-header">
+    <div>
+      <h3 class="accordion-toggle">Strive Marketing Consulting</h3>
+      <p>Social media content for Strive Marketing Consulting (formerly Smith Marketing Consulting), a student-run marketing consultancy at Queen's University.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/strivemarketingconsulting/" target="_blank" rel="noopener" aria-label="Strive Marketing Consulting Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <a href="https://ca.linkedin.com/company/strivemarketingconsulting" target="_blank" rel="noopener" aria-label="Strive Marketing Consulting LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 4.98 2.4 4.98 3.5zM1 8h4v13H1V8zm7 0h4v2h.06c.5-1 1.8-2.1 3.7-2.1 4 0 4.7 2.6 4.7 6V21h-4v-5.4c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9V21H8V8z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/SmithMarketingConsulting/" target="_blank" rel="noopener" aria-label="Strive Marketing Consulting Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H7.9V12h2.6V9.8c0-2.6 1.5-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+        </a>
+        <a href="https://strivemarketingconsulting.ca/" target="_blank" rel="noopener" aria-label="Strive Marketing Consulting website">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
+        </a>
+      </div>
+      <div class="platform-tags">
+        <span class="tag-instagram">Instagram</span>
+        <span class="tag-linkedin">LinkedIn</span>
+        <span class="tag-facebook">Facebook</span>
       </div>
     </div>
+  </div>
+  <div class="accordion-content">
     <div class="gallery-grid">
       <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/march hiring smc.png" alt="SMC March Hiring 2023-2024 post" loading="lazy">
       <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/testimonials smc 1.png" alt="SMC testimonials post" loading="lazy">
@@ -704,6 +731,7 @@
       <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/propel group.png" alt="SMC X Propel Team Graphic" loading="lazy">
     </div>
   </div>
+</div>
 
   <div class="work-subsection-title">
   <div class="section-label">Portfolio</div>
@@ -889,6 +917,13 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
   });
+  document.querySelectorAll('.accordion-toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    const content = toggle.nextElementSibling;
+    content.classList.toggle('open');
+  });
+});
 </script>
 
 </body>
